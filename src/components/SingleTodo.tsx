@@ -1,9 +1,9 @@
 import React, { useRef, useState, useEffect } from "react";
-import { Todo } from "../models/model";
-import "./styles.css";
+import { Draggable } from "react-beautiful-dnd";
 import { AiFillEdit, AiFillDelete } from "react-icons/ai";
 import { MdDone } from "react-icons/md";
-import { Draggable } from "react-beautiful-dnd";
+import { Todo } from "../models/model";
+import "./styles.css";
 
 type Props = {
   todo: Todo;
@@ -11,6 +11,7 @@ type Props = {
   todos: Todo[];
   index: number;
 };
+
 const SingleTodo = ({ todo, setTodos, todos, index }: Props) => {
   const [editTodo, setEditTodo] = useState<Todo>(todo);
   const [isEdit, setIsEdit] = useState<boolean>(false);
@@ -27,6 +28,7 @@ const SingleTodo = ({ todo, setTodos, todos, index }: Props) => {
   const handleDelete = (id: number) => {
     setTodos(todos.filter((data) => data.id !== id));
   };
+
   const handleEdit = (e: React.FormEvent) => {
     e.preventDefault();
     setTodos(

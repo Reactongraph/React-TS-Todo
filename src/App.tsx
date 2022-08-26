@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import "./App.css";
-
+import { DragDropContext, DropResult } from "react-beautiful-dnd";
 import InputField from "./components/InputField";
 import TodoList from "./components/TodoList";
 import { Todo } from "./models/model";
-import { DragDropContext, DropResult } from "react-beautiful-dnd";
+import "./App.css";
 
 const App: React.FC = () => {
   const [task, setTask] = useState<string>("");
@@ -21,7 +20,7 @@ const App: React.FC = () => {
 
   const onDragEnd = (result: DropResult) => {
     const { source, destination } = result;
-    console.log(source, destination);
+
     if (!destination) {
       return;
     }
